@@ -1,16 +1,21 @@
 package vn.edu.hust.listexamples
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
-import android.widget.ImageView
 import android.widget.TextView
+import com.example.hust_example_mobileapp_studentlist_manager.MainActivity
 import com.example.hust_example_mobileapp_studentlist_manager.R
 
-class StudentAdapter(val students: List<StudentModel>): BaseAdapter() {
+class StudentAdapter(val students: List<StudentModel>, context: Context): BaseAdapter() {
+    lateinit var context: Context
+    init {
+        this.context = context
+    }
     override fun getCount(): Int = students.size
 
     override fun getItem(position: Int): Any = students[position]
@@ -38,14 +43,18 @@ class StudentAdapter(val students: List<StudentModel>): BaseAdapter() {
         viewHolder.checkSelected.isChecked = student.selected
 
         viewHolder.checkSelected.setOnClickListener {
+            Log.v("TAG DIFF", "clicked$position")
             student.selected = viewHolder.checkSelected.isChecked
-
             if (student.selected)
             {
-
+                (context as MainActivity).Student_Selected(student)
+            }else
+            {
+                (context as MainActivity).Student_Unselected()
             }
-            notifyDataSetChanged()
+//            notifyDataSetChanged()
         }
+
 
         return itemView
     }

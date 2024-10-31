@@ -1,5 +1,5 @@
 package vn.edu.hust.listexamples
 
-data class StudentModel(val hoten: String, val mssv: String) {
+data class StudentModel(var hoten: String, var mssv: String) {
     var selected = false
 }
