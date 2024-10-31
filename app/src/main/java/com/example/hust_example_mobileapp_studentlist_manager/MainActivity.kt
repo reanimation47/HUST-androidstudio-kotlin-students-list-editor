@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity() {
 
             //unbind student
             this.selectedStudent = null
+            this.adapter.notifyDataSetChanged()
         }
     }
 
