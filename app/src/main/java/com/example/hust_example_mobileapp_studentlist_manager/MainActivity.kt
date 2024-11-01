@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         findViewById<Button>(R.id.btn_edit).setOnClickListener{
             if (this.selectedStudent != null)
             {

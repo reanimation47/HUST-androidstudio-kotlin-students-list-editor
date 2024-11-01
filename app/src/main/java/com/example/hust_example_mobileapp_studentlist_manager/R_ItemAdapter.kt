@@ -28,6 +28,7 @@ class R_ItemAdapter(val items: List<R_ItemModel>, val listener: R_ItemClickListe
 
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): R_ItemAdapter.R_ItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_r_item, parent, false)
         return R_ItemViewHolder(itemView, listener)
